@@ -1,0 +1,92 @@
+flower and cakes DB schema:
+
+items: [
+    flowers: [
+        {
+            _id: 1234,
+            title: xyz,
+            price: 359,
+            productDetails: ["3 Red Roses", "3 Yellow Roses", "2 White Roses", "2 Pink Roses", "Red Packing Paper", "Mixed Colour Ribbons"],
+            note: ["The Ribbons can be saved and used later for decorating gifts!","Green Fillers may vary as per local and seasonal availability."],
+            DeliveryInfo: ["The image displayed is indicative in nature. Actual product may vary in shape or design as per the availability.", "Flowers may be delivered in fully bloomed, semi-bloomed or bud stage."],
+            careInstructions: ["Use a clean vase and clean water.","Remove the leaves below the water line but do not remove all leaves along the stem length."],
+            images: [url1, url2, url3],
+            category: "Roses",
+            quantity: 9
+        },
+        {
+            _id: 12345,
+            title: xyz,
+            price: 359,
+            productDetails: ["3 Red Roses", "3 Yellow Roses", "2 White Roses", "2 Pink Roses", "Red Packing Paper", "Mixed Colour Ribbons"],
+            note: ["The Ribbons can be saved and used later for decorating gifts!","Green Fillers may vary as per local and seasonal availability."],
+            deliveryInfo: ["The image displayed is indicative in nature. Actual product may vary in shape or design as per the availability.", "Flowers may be delivered in fully bloomed, semi-bloomed or bud stage."],
+            careInstructions: ["Use a clean vase and clean water.","Remove the leaves below the water line but do not remove all leaves along the stem length."],
+            images: [url1, url2, url3],
+            category: "mixed",
+            quantity: 10
+        }
+    ],
+    cakes: [
+        {
+            _id: 3456,
+            title: "Chocolate Truffle Delicious Cake Half Kg",
+            price: 549,
+            productDetails: ["Cake Flavour- Truffle", "Weight- Half Kg", "Shape- Round"],
+            note: ["This cake is hand delivered in a good quality cardboard box.", "Country of Origin: India"],
+            deliveryInfo: ["Every cake we offer is handcrafted and since each chef has his/her own way of baking", "The chosen delivery time is an estimate"],
+            careInstructions: ["Store cream cakes in a refrigerator.", "Use a serrated knife to cut a fondant cake."]
+            images: [url1, url2],
+            category: "pineapple",
+            quantity: 12
+        }
+    ]
+],
+users: [
+    {
+        _id:1111,
+        name: "Aman",
+        email: "aman@gmail.com",
+        mobile: "xxxxxxxxxx",
+        dob: "dd-mm-yyyy",
+        gender: "male",
+        primaryAdress: "xyz pune",
+        addressBook: ["abcd", "qwas"],
+        pincode: "xxxxxx",
+        city: "pune",
+        country: "india",
+        isAdmin: false,
+        cart: [
+            {   
+                _id: 3456
+                productId: "1234" //same as order of the item,
+                quantity: 1,
+                pincode: "xxxxxx",
+                city: "pune",
+                state: "Maharastra",
+                deliveryDate: "20-09-2021",
+                deliveryTimeStart: "08:00",
+                deliveryTimeEnd: "14:00",
+                amount: "799"
+            }
+        ],
+        orders: [
+            {
+                _id: 4567,
+                productId: "2345",
+                quantity: 1,
+                receiverMobile: "XXXXXXXXXX",
+                receiverAddress: "abcd pune, Maharastra",
+                receiverEmail: "mno@gmail.com",
+                pincode: "xxxxxx",
+                city: "pune",
+                state: "Maharastra",
+                deliveryDate: "20-09-2021",
+                deliveryTimeStart: "08:00",
+                deliveryTimeEnd: "14:00"
+                amount: "949"
+            }
+        ],
+    },
+
+],
