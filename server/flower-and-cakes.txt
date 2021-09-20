@@ -4,15 +4,15 @@ items: [
     flowers: [
         {
             _id: 1234,
-            title: xyz,
-            price: 359,
+            -title: xyz,
+            -price: 359,
             productDetails: ["3 Red Roses", "3 Yellow Roses", "2 White Roses", "2 Pink Roses", "Red Packing Paper", "Mixed Colour Ribbons"],
             note: ["The Ribbons can be saved and used later for decorating gifts!","Green Fillers may vary as per local and seasonal availability."],
             DeliveryInfo: ["The image displayed is indicative in nature. Actual product may vary in shape or design as per the availability.", "Flowers may be delivered in fully bloomed, semi-bloomed or bud stage."],
             careInstructions: ["Use a clean vase and clean water.","Remove the leaves below the water line but do not remove all leaves along the stem length."],
-            images: [url1, url2, url3],
-            category: "Roses",
-            quantity: 9
+            -images: [url1, url2, url3],
+            -category: "Roses",
+            -quantity: 9
         },
         {
             _id: 12345,
