@@ -1,0 +1,73 @@
+.mobileCode{
+    width: 30% !important;
+    margin-right: 1rem;
+}
+
+.rightMargin{
+    margin-right: 1rem;
+}
+
+.addProduct h2{
+    margin-bottom: 2rem;
+}
+
+.addProduct-form-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+    align-items: end;
+}
+
+.addProduct-formItem{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+
+.addProduct-formItem i{
+    color: #999999;
+}
+
+.addProduct-formItem-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.addProduct-formItem-right span{
+    color: #999EB3;
+}
+
+.addProduct-formItem-right-textInput{
+    border: none; 
+    border-bottom: 2px solid #E2E2E2;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.addProduct-formItem-right textarea{
+    border: none; 
+    border-bottom: 2px solid #E2E2E2;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.addProduct-formItem-right textarea:focus{
+    outline: none !important;
+    border-bottom: 2px solid #009d43;
+}
+
+.addProduct-formItem-right-textInput:focus{
+    outline: none !important;
+    border-bottom: 2px solid #009d43;
+}
+
+
+
+.addProduct-buttonContainer button{
+    margin-right: 1rem;
+}

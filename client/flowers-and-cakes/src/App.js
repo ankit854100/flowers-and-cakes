@@ -1,9 +1,12 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Admin from "./components/admin/Admin";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to flowers and cakes</h1>
+      <Admin />
     </div>
   );
 }

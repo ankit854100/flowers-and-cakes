@@ -1,0 +1,25 @@
+.productList h2{
+    margin-bottom: 1rem;
+}
+
+.productList thead{
+    background-color: #009d43;
+    color: #fff;
+}
+
+.productList th, td{
+    padding: 0.5rem 1rem;
+}
+
+.productList tbody tr{
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.productList i{
+    color: #999999;
+    cursor: pointer;
+}
+
+.last{
+    text-align: center;
+}
