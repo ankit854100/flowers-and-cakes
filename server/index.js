@@ -3,11 +3,19 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
 
+import flowerRoutes from './routes/flower.js'
+import cakesRoutes from './routes/cakes.js'
+import usersRoutes from './routes/users.js'
+
 const app = express();
 
 app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
+
+app.use('/flower', flowerRoutes);
+app.use('/cake', cakesRoutes);
+app.use('/user', usersRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://demo_user:demo123123@cluster0.sfrsy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
