@@ -9,8 +9,6 @@ function ProductList(props) {
    const cakes = useSelector((state) => state.items.cakes);
    const flowers = useSelector((state) => state.items.flowers);
 
-   console.log(cakes);
-
     return (
         <div className="productList">
             {/* <h2>List of products</h2> */}

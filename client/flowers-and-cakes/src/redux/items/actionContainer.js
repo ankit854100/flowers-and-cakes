@@ -1,4 +1,4 @@
-import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER } from "./actionTypes"
+import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER } from "./actionTypes"
 import * as api from "../../api";
 
 export const setCurrentId = (id) => (dispatch) => {
@@ -42,6 +42,17 @@ export const updateCake = (id, cake) => async (dispatch) => {
     }
 }
 
+export const deleteCake = (id) => async (dispatch) => {
+    try {
+        await api.deleteCake(id);
+
+        dispatch({type: DELETE_CAKE, payload: id});
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const getFlowers = () => async (dispatch) => {
     try {
         const {data} = await api.fetchFlowers();
@@ -70,9 +81,19 @@ export const updateFlower = (id, flower) => async (dispatch) => {
     try {
         const { data } = await api.updateFlower(id, flower);
 
-        console.log(id, flower);
+        // console.log(id, flower);
   
         dispatch({ type: UPDATE_FLOWER, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const deleteFlower = (id) => async (dispatch) => {
+    try {
+        api.deleteFlower(id);
+
+        dispatch({type: DELETE_FLOWER, payload: id});
     } catch (error) {
         console.log(error);
     }

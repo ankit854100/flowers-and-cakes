@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useDispatch} from 'react-redux'
-import { setCurrentId, setIdCategory } from '../../redux/items/actionContainer';
+import { deleteCake, deleteFlower, setCurrentId, setIdCategory } from '../../redux/items/actionContainer';
 
 function ProductListTable(props) {
 
@@ -35,7 +35,14 @@ function ProductListTable(props) {
                                         dispatch(setIdCategory(props.name));
                                         props.setRightContainer("addProduct");
                                         }}></i></td>
-                                    <td className="last"><i class="fas fa-trash-alt"></i></td>
+                                    <td className="last"><i class="fas fa-trash-alt" onClick={() => {
+                                        if(props.name === "Cakes"){
+                                            dispatch(deleteCake(item._id));
+                                        }
+                                        else{
+                                            dispatch(deleteFlower(item._id));
+                                        }
+                                    }}></i></td>
                                 </tr>
                             )
                         })}
