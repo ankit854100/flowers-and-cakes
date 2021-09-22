@@ -30,6 +30,17 @@ export const updateCake = async (req,res) => {
         return res.status(404).send("No Cakes with this ID.");
     }
 
-    const updatedCake = await CakeModel.findByIdAndUpdate(_id, updCake, {new: true});
+    const updatedCake = await CakeModel.findByIdAndUpdate(_id, {...updCake, _id}, {new: true});
     res.json(updatedCake);
+}
+
+export const deleteCake = async (req, res) => {
+    const {id} = req.params;
+    
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send("No Cakes with this ID.");
+    }
+
+    await CakeModel.findByIdAndDelete(id);
+    res.json({message: 'Cake item deleted successfully. '});
 }
