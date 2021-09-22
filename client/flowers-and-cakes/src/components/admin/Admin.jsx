@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import ProfileForm from './ProfileForm'
 import ProductList from './ProductList'
 import AddProducts from './AddProducts'
 import ChangePassword from './ChangePassword'
 
 import './admin.css'
+import { getCakes, getFlowers } from '../../redux/items/actionContainer'
 
 function Admin() {
 
     const [rightContainer, setRightContainer] = useState("profile");
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCakes());
+        dispatch(getFlowers());
+        
+    }, [dispatch])
+    
     return (
         <div className="admin">
             <div className="admin-left">
@@ -39,7 +51,7 @@ function Admin() {
             </div>
             <div className="admin-right">
                 {rightContainer === "profile" && <ProfileForm /> }
-                {rightContainer === "productList" && <ProductList /> }
+                {rightContainer === "productList" && <ProductList setRightContainer={setRightContainer} /> }
                 {rightContainer === "addProduct" && <AddProducts /> }
                 {rightContainer === "changePassword" && <ChangePassword /> }
             </div>

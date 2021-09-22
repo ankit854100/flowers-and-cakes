@@ -1,13 +1,20 @@
+import React, {useEffect} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {Provider} from "react-redux";
+
 import Admin from "./components/admin/Admin";
+import store from './redux/store';
 
 function App() {
+
   return (
-    <div className="App">
-      <Admin />
-    </div>
+    <Provider store={store}>
+        <div className="App">
+          <Admin />
+        </div>
+    </Provider>
   );
 }
 

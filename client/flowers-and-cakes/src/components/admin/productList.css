@@ -2,6 +2,12 @@
     margin-bottom: 1rem;
 }
 
+.productList-tableContainer{
+    margin-bottom: 2rem;  
+    max-height: 22rem;
+    overflow: auto;  
+}
+
 .productList thead{
     background-color: #009d43;
     color: #fff;

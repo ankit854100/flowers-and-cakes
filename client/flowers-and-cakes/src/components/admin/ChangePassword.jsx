@@ -8,8 +8,13 @@ function ChangePassword() {
     const [email, setEmail] = useState("");
     
     const handleSubmit = () => {
-        alert("Check your mail for password reset link!");
-        setEmail("");
+        if(email === ""){
+            alert("Enter valid email address");
+        }
+        else{
+            alert("Check your mail for password reset link!");
+            setEmail("");
+        }
     }
 
     return (
