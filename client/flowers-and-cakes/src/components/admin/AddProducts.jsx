@@ -3,7 +3,7 @@ import FileBase from 'react-file-base64'
 
 import {Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import { addCake, addFlowers } from '../../redux/items/actionContainer';
+import { addCake, addFlowers, setCurrentId, setIdCategory, updateCake, updateFlower } from '../../redux/items/actionContainer';
 
 import './addProducts.css'
 
@@ -19,22 +19,45 @@ function AddProducts() {
     const [productDetails, setProductDetails] = useState("");
 
     const dispatch = useDispatch();
-    // const currentId = useSelector((state) => state.items.currentId);
+    const currentId = useSelector((state) => state.items.currentId);
+    const idCategory = useSelector((state) => state.items.idCategory);
+    const items = useSelector((state) => currentId ? idCategory === "Cakes" ? state.items.cakes : state.items.flowers : null);
 
-    // useEffect(() => {
-    //     if(currentId !== null){
+    useEffect(() => {
+        if(currentId){
+            setStates();
+        }
+    },[items])
 
-    //     }
-    // })
 
+    const setStates = () => {
+        const item = items.find((item) => item._id === currentId);
 
+        setTitle(item.title);
+        setPrice(item.price);
+        setQuantity(item.quantity);
+        if(idCategory === "Cakes"){
+            setCategory("cakes");
+            setCakeCategory(item.category);
+        }
+        else{
+            setCategory("flowers");
+            setFlowerCategory(item.category);
+        }
+        setImages(item.images[0]);
+        setProductDetails(item.productDetails.join("."));
+    }
     const reset = () => {
+        if(currentId !== null){
+            dispatch(setCurrentId(null));
+            dispatch(setIdCategory(null));
+        }
+
         setTitle("");
         setPrice("");
         setQuantity(0);
         setCategory("cakes");
         setProductDetails("");
-
     }
 
     const handleCancel = () => {
@@ -43,11 +66,20 @@ function AddProducts() {
 
     const handleSubmit = () => {
 
-        if(category === "cakes") 
-            dispatch(addCake({title: title, price: price, quantity: quantity, images: [images], category: cakeCategory, productDetails: productDetails.split("."), reviews: {}}));
-        else 
-            dispatch(addFlowers({title: title, price: price, quantity: quantity, images: [images], category: flowerCategory, productDetails: productDetails.split("."), reviews: {}}));
+        if(currentId){
+            if(category === "cakes") 
+                dispatch(updateCake(currentId, {title: title, price: price, quantity: quantity, images: [images], category: cakeCategory, productDetails: productDetails.split("."), reviews: {}}));
+            else
+                dispatch(updateFlower(currentId, {title: title, price: price, quantity: quantity, images: [images], category: flowerCategory, productDetails: productDetails.split("."), reviews: {}}));
 
+        }
+        else{
+            if(category === "cakes") 
+                dispatch(addCake({title: title, price: price, quantity: quantity, images: [images], category: cakeCategory, productDetails: productDetails.split("."), reviews: {}}));
+            else 
+                dispatch(addFlowers({title: title, price: price, quantity: quantity, images: [images], category: flowerCategory, productDetails: productDetails.split("."), reviews: {}}));
+
+        }
         reset();
     }
 
@@ -83,7 +115,7 @@ function AddProducts() {
                         {category === "cakes" ? <i class="fas fa-birthday-cake"></i> : <i class="fas fa-fan"></i>}
                         <div className="addProduct-formItem-right">
                             <span>Category</span>
-                            <select name="category" id="" className="addProduct-formItem-right-textInput" value={category} onChange={(e) => {setCategory(e.target.value)}}>
+                            <select name="category" disabled={currentId !== null} className="addProduct-formItem-right-textInput" value={category} onChange={(e) => {setCategory(e.target.value)}}>
                                 <option value="cakes">Cakes</option>
                                 <option value="flowers">Flowers</option>
                             </select>

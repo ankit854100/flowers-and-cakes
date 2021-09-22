@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {useDispatch} from 'react-redux'
-import { setCurrentId } from '../../redux/items/actionContainer';
+import { setCurrentId, setIdCategory } from '../../redux/items/actionContainer';
 
 function ProductListTable(props) {
 
@@ -32,7 +32,8 @@ function ProductListTable(props) {
                                     <td>{item.quantity}</td>
                                     <td className="last"><i class="fas fa-edit" onClick={() => {
                                         dispatch(setCurrentId(item._id));
-                                        // props.setRightContainer("addProduct");
+                                        dispatch(setIdCategory(props.name));
+                                        props.setRightContainer("addProduct");
                                         }}></i></td>
                                     <td className="last"><i class="fas fa-trash-alt"></i></td>
                                 </tr>
