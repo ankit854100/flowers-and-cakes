@@ -45,3 +45,19 @@ export const deleteFlower = async (req, res) => {
     await FlowerModel.findByIdAndDelete(id);
     res.json({message: 'Flower item deleted successfully. '});
 }
+
+export const getOneFlower = async (req, res) => {
+    const {id} = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send("No Cakes with this ID.");
+    }
+
+    try {
+        const flower = await FlowerModel.findById(id);
+        res.status(200).json(flower);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+
+}

@@ -44,3 +44,18 @@ export const deleteCake = async (req, res) => {
     await CakeModel.findByIdAndDelete(id);
     res.json({message: 'Cake item deleted successfully. '});
 }
+
+export const getOneCake = async (req, res) => {
+    const {id} = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send("No Cakes with this ID.");
+    }
+
+    try {
+        const cake = await CakeModel.findById(id);
+        res.status(200).json(cake);
+    } catch (error) {
+        res.status(404).json({message: error.message});
+    }
+}
