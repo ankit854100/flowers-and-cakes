@@ -1,14 +1,14 @@
 import React from "react";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import img1 from './front/all_cakes.jpg';
-import img2 from './front/blackforest_cake.jpg';
-import img3 from './front/chocholate_cake.jpg';
-import img4 from './front/pineapple_cake.jpg';
-import img5 from './front/all_flowers.jpg';
-import img6 from './front/carnations.jpg';
-import img7 from './front/roses.jpg';
-import img8 from './front/mix_flowers.jpg';
+import img1 from './all_cakes.jpg';
+import img2 from './blackforest_cake.jpg';
+import img3 from './chocholate_cake.jpg';
+import img4 from './pineapple_cake.jpg';
+import img5 from './all_flowers.jpg';
+import img6 from './carnations.jpg';
+import img7 from './roses.jpg';
+import img8 from './mix_flowers.jpg';
 
 export const CFS =()=>{
     return (
