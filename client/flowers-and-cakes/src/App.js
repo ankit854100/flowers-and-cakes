@@ -1,11 +1,25 @@
+import React from 'react';
+import {Navbar} from './navbar';
+import {Header} from './Header';
+import {Footer} from './Footer';
+import {CFS} from './Cakes_Flowers';
+import {MainContent} from './productDetails'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Welcome to flowers and cakes</h1>
-    </div>
-  );
-}
 
+
+
+class App extends React.Component {
+render() {
+    return  (
+      <div>
+      <Navbar/>
+      <Header/>
+      <CFS/>
+      <MainContent/>
+      <Footer/>
+      </div>
+    );
+  }
+}
 export default App;
