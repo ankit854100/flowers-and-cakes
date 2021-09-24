@@ -9,11 +9,15 @@ import ChangePassword from './ChangePassword'
 import './admin.css'
 import { getCakes, getFlowers } from '../../redux/items/actionContainer'
 
+import { useAuth} from "../../context/AuthContext"
+
 function Admin() {
 
     const [rightContainer, setRightContainer] = useState("profile");
 
     const dispatch = useDispatch();
+
+    const { logout } = useAuth();
 
     useEffect(() => {
         dispatch(getCakes());
@@ -44,7 +48,10 @@ function Admin() {
                     <i class="fas fa-key"></i>
                     <span>change password</span>
                 </div>
-                <div className={rightContainer === "logout" ? "admin-left-activeDiv admin-leftLast" : "admin-leftLast"} onClick={() => {setRightContainer("logout")}}>
+                <div className={rightContainer === "logout" ? "admin-left-activeDiv admin-leftLast" : "admin-leftLast"} onClick={() => {
+                    logout();
+                    setRightContainer("logout")
+                }}>
                     <i class="fas fa-sign-out-alt"></i>
                     <span>logout</span>
                 </div>
