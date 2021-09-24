@@ -1,0 +1,90 @@
+.container{
+ 
+  height: auto;
+  width: center;
+  display:flex;
+  align-items: flex-start;
+  padding-left: 10px;
+  flex-wrap: col wrap;
+}
+
+.col1{
+  flex-grow:1;
+  margin-right:10px;
+  margin-top:20px;
+  display: flex;
+  flex-direction: column;
+}
+.col2{
+ 
+  flex-grow:3;
+  height:auto;
+  margin-right:10px;
+  margin-top:20px;
+  
+}
+.col3{
+flex-grow:5;
+margin-top:20px;
+padding-left: 5px;
+margin-left: 10px;
+
+}
+.image-space{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.curr-symbol{
+    color: #e53333;
+}
+
+.pincode{
+  margin-left: 30px;
+  margin-right: 10px;
+  width: 250px;
+  height: 60px;
+  border: 1px solid #ff9212;
+  animation: focuses ease-in-out 1500ms infinite;
+  transition: all ease-in-out .25s;
+  box-shadow: 0 0 10px #ff9212;
+}
+
+.curr-symbol {
+  font-size: 20px;
+  vertical-align: top;
+  margin-top: 9px;
+  font-weight: 400;
+  font-style: italic;
+  color: red;
+}
+.price {
+  margin-left:5px;
+    font-size: 45px;
+    font-style: italic;
+    color:red;
+}
+
+.btn{
+  width: 250px;
+  height: 60px;
+  margin-left: 30px;
+  margin-right: 10px;
+  box-shadow: 0 0 50px pink;
+}
+.single-line-PINCODE {
+  font-size: 14px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+  margin-left: 20px;
+  color:green;
+  font-weight: 500;
+  padding-left: 10px;
+}
+input,input::-webkit-input-placeholder
+{
+  font-size: 25px;line-height: 3; padding: center; text-size-adjust: 42px;
+}
+      
+input[type='text'] { font-size: 18px; }
+
