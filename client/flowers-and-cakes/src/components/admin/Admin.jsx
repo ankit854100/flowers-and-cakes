@@ -13,13 +13,13 @@ function Admin() {
 
     const [rightContainer, setRightContainer] = useState("profile");
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getCakes());
-        dispatch(getFlowers());
+    // useEffect(() => {
+    //     dispatch(getCakes());
+    //     dispatch(getFlowers());
         
-    }, [dispatch])
+    // }, [dispatch])
     
     return (
         <div className="admin">

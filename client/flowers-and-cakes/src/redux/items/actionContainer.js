@@ -1,4 +1,4 @@
-import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER } from "./actionTypes"
+import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER, CAKE_CATEGORY, FLOWER_CATEGORY, SELECTED_PRODUCT } from "./actionTypes"
 import * as api from "../../api";
 
 export const setCurrentId = (id) => (dispatch) => {
@@ -97,4 +97,17 @@ export const deleteFlower = (id) => async (dispatch) => {
     } catch (error) {
         console.log(error);
     }
+}
+
+
+export const setCakeCategory = (category) => (dispatch) => {
+    dispatch({type:CAKE_CATEGORY, payload: category});
+}
+
+export const setFlowerCategory = (category) => (dispatch) => {
+    dispatch({type:FLOWER_CATEGORY, payload: category});
+}
+
+export const setSelectedProduct = (product) => (dispatch) => {
+    dispatch({type: SELECTED_PRODUCT, payload: product});
 }

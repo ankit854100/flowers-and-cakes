@@ -1,0 +1,10 @@
+.itemContainer{
+    background-color: #f2f2f2;
+    padding: 1rem;
+    align-items: center;
+}
+
+.itemContainer-cardWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
