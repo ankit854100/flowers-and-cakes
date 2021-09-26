@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {Alert} from 'react-bootstrap'
 
 import NavBar from '../home/NavBar'
 import ItemCard from './ItemCard'

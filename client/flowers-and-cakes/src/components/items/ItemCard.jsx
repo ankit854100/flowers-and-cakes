@@ -3,7 +3,7 @@ import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux';
 
-import { setCurrentId, setSelectedProduct } from '../../redux/items/actionContainer';
+import { setSelectedProduct } from '../../redux/items/actionContainer';
 
 import './itemCard.css'
 
