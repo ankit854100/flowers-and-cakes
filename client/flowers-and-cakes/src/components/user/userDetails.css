@@ -1,27 +1,28 @@
-.admin{
+.userDetails{
     display: flex;
     /* background-color: #F2F2F2; */
     padding: 0.5rem;
+    margin-top: 5rem;
 }
 
-.admin-left{
+.userDetails-left{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 35%;
     font-size: 18px;
     font-family: Roboto,sans-serif;
     font-weight: 400;
     line-height: 1.5;
 }
 
-.admin-leftFirst{
+.userDetails-leftFirst{
     background-color: #009d43 !important;
     border-top-left-radius: 0.5rem !important;
     border-top-right-radius: 0.5rem !important;
     color: #fff !important;
 }
 
-.admin-left div{
+.userDetails-left div{
     display: flex;
     align-items: baseline;
     padding: 1rem 3rem;
@@ -31,31 +32,31 @@
     background-color: #fff;
 }
 
-.admin-left div i{
+.userDetails-left div i{
     margin-right: 1rem;
 }
 
-.admin-leftLast{
+.userDetails-leftLast{
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
 }
 
-.admin-left div:hover{
+.userDetails-left div:hover{
     /* background-color: rgba(0, 0, 0, 0.08); */
     color: #009d43 !important;
 
 }
 
-.admin-left-activeDiv{
+.userDetails-left-activeDiv{
     /* background-color: rgba(0, 0, 0, 0.08) !important; */
     color: #009d43 !important;
 }
 
-.admin-left-activeDiv span{
+.userDetails-left-activeDiv span{
     font-weight: 600;
 }
 
-.admin-right{
+.userDetails-right{
     margin-left: 1rem;
     background-color: #fff;
     border-radius: 0.5rem;

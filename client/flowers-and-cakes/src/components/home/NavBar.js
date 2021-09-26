@@ -1,13 +1,17 @@
 import React from 'react'
 import {Nav, Navbar, NavDropdown, Form, FormControl, Button} from "react-bootstrap"
+import { useHistory } from 'react-router'
 
 import './navBar.css'
 
 function NavBar() {
+
+  const history = useHistory();
+
   return (
     <div className="navBar">
       <Navbar className="navBar-top-wrapper" fixed="top" bg="light" expand="lg">
-        <Navbar.Brand href="#">Flowers and cakes</Navbar.Brand>
+        <Navbar.Brand href="/" onClick={() => history.push("/")}>Flowers and cakes</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Form className="d-flex">
@@ -36,7 +40,7 @@ function NavBar() {
               <div className="navBar-icon-wrapper">
                 <i class="fas fa-user-circle fa-lg"></i>
                 <NavDropdown className="navBar-iconCaption" title="profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
+                  <NavDropdown.Item href="/user-details" onClick={() => history.push("/user-details")}>My profile</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.2">My orders</NavDropdown.Item>
               </NavDropdown>
