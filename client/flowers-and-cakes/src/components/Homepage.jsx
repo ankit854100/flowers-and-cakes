@@ -17,7 +17,8 @@ function Homepage() {
             </div>
             <style jsx>{`
                 .homepage{
-                background-color: #F2F2F2;
+                    background-color: #F2F2F2;
+                    margin-top: 5rem;
                 }
             `}</style>
         </React.Fragment>
