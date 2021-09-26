@@ -1,88 +1,67 @@
-.footer{
-    margin-top: 15px;
-    background: #fff;
-}
-.line{
-    height: 1px;
-    width: 100%;
-    background: gray;
-    margin-bottom: 15px;
-}
-.footer .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
-    gap: 1.5rem;
+.footer-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
 }
 
-.footer .box-container .box h3{
-    font-size: 2.5rem;
-    color: black;
-    padding: 1rem 0;
-    font-weight: bolder;
+.footer i{
+    color: #198754;
+    margin-right: 0.5rem;
 }
 
-.footer .box-container .box i{
-    color: orange;
+.footer-Col{
+    display: flex;
+    flex-direction: column;
 }
-.footer .box-container .box a{
-    display: block;
-    font-size: 1.2rem;
-    color: lightslategrey;
-    padding: 1rem 0;
-    text-transform: none;
+
+.footer-Col p{
+    max-width: 18rem;
 }
-.footer .box-container .box a i{
-    color: orange;
-    padding-right: 0.5rem;
+
+.footer-Col div{
+    padding: 0.25rem 0;
+    cursor: pointer;
 }
-.footer .box-container .box a:hover i{
-    padding-right: 1rem;
+
+.footer-Col div:hover{
+    color: #009d43 !important;
 }
-.footer .box-container .box p{
-    line-height: 1.8;
-    font-size: 1.2rem;
-    color: lightslategrey;
-    padding: 1rem 0;
+
+.footer-Col-inputContainer{
+    display: flex;
 }
-.footer .box-container .box .share a{
+
+.footer-Col input{
     height: 3rem;
-    width: 3rem;
-    line-height: 3rem;
-    background-repeat: .5rem;
-    font-size: 2rem;
-    color: black;
-    margin-left: 1rem;
-    background: white;
-    display: inline-flex;
+    border: 1px solid #CED4DA;
+    border-right: none;
+    padding: 0.5rem;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }
-.footer .box-container .box .share a:hover{
-    background: orange;
-    color : white;
-}
-.footer .box-container .box .share .email{
-    margin: 5rem 0;
-    padding: 3rem;
-    background-repeat: .5rem;
-    background: white;
-    font-size: 1.6rem;
-    color: black;
-    text-transform: none;
-    width: 100%;
-}
-.email::placeholder{
-    outline: solid 1px black;
-    border-radius: 2px;
-}
-input.email{
-    color: black;
-    outline: auto;
 
+.footer-Col input:focus{
+    outline: none;
+    border-color: #009d43;
 }
-.box .btn{
-    font-size: 10px;
-    font-weight: bolder;
-    color: slategrey;
-    border: gray;
-    outline: auto;
-    margin-left: 1px;
+
+.footer-Col button{
+    height: 3rem;
+    border-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.footer-Col button:focus{
+    box-shadow: none !important;
+}
+
+.footer-rowSecond{
+    padding: 1rem;
+    text-align: center;
+    background-color: #F2F2F2;
+}
+.footer-rowSecond p{
+    margin: 0;
 }

@@ -1,0 +1,9 @@
+.carouselHomePage{
+    max-height: 25rem;
+    overflow: hidden;
+}
+
+.carouselHomePage img{
+    height: 25rem;
+    object-fit: cover;
+}

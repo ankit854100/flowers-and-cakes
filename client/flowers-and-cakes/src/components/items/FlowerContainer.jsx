@@ -6,6 +6,7 @@ import NavBar from '../home/NavBar'
 import ItemCard from './ItemCard'
 
 import './itemContainer.css'
+import Footer from '../home/Footer'
 
 function FlowerContainer() {
 
@@ -30,6 +31,7 @@ function FlowerContainer() {
                     })}
                 </div>
             </div>
+            <Footer />
        </React.Fragment>
     )
 }

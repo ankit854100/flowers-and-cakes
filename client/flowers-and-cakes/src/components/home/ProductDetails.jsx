@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {Button} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router';
+import Footer from './Footer';
 import NavBar from './NavBar';
 
 import './productDetails.css'
@@ -66,6 +67,7 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+      <Footer />
     </React.Fragment>
   )
 }

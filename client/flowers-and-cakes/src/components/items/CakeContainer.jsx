@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Footer from '../home/Footer'
 import NavBar from '../home/NavBar'
 import ItemCard from './ItemCard'
 
@@ -28,6 +29,7 @@ function CakeContainer() {
                     })}
                 </div>
             </div>
+            <Footer />
        </React.Fragment>
     )
 }
