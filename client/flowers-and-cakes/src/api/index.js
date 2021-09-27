@@ -12,3 +12,4 @@ export const fetchFlowers = () => axios.get(flowerUrl);
 export const addFlower = (newFlower) => axios.post(`${flowerUrl}/addFlower`, newFlower);
 export const updateFlower = (id, flower) => axios.patch(`${flowerUrl}/${id}`, flower);
 export const deleteFlower = (id) => axios.delete(`${flowerUrl}/${id}`);
+

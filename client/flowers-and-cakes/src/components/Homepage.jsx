@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 
 import NavBar from './home/NavBar'
 import CakeCategory from "./home/CakesCategory"
@@ -7,10 +6,11 @@ import FlowerCategory from './home/FlowersCategory'
 import Footer from './home/Footer'
 
 function Homepage() {
+
     return (
         <React.Fragment>
             <div className="homepage">
-                <NavBar />
+                <NavBar/> 
                 <CakeCategory />
                 <FlowerCategory />
                 <Footer />

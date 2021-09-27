@@ -16,6 +16,10 @@ import CakeContainer from './components/items/CakeContainer';
 import FlowerContainer from './components/items/FlowerContainer';
 import Homepage from './components/Homepage';
 
+// Search imports
+import SearchPage from './components/searchPage/SearchPage';
+// End Search imports
+
 import {getFlowers, getCakes} from "./redux/items/actionContainer"
 
 function App() {
@@ -37,6 +41,11 @@ function App() {
             <Route path="/product-details" component={ProductDetails}/>
             <Route path="/admin" component={Admin} />
             <Route exact path="/" component={Homepage} />
+
+            {/* Search Route */}
+            <Route path="/search" component={SearchPage} />
+            {/* End Route */}
+            
           </Switch>
         </div>
     // </Provider>

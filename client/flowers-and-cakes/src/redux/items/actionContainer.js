@@ -111,3 +111,5 @@ export const setFlowerCategory = (category) => (dispatch) => {
 export const setSelectedProduct = (product) => (dispatch) => {
     dispatch({type: SELECTED_PRODUCT, payload: product});
 }
+
+
