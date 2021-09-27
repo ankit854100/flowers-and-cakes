@@ -1,12 +1,15 @@
 import React from 'react'
 import {Nav, Navbar, NavDropdown, Form, FormControl, Button} from "react-bootstrap"
 import { useHistory } from 'react-router'
+import { useAuth } from '../../context/AuthContext';
 
 import './navBar.css'
 
 function NavBar() {
 
   const history = useHistory();
+
+  const { currentUser } = useAuth();
 
   return (
     <div className="navBar">
@@ -39,11 +42,22 @@ function NavBar() {
             <Nav.Link className="" href="#action2">
               <div className="navBar-icon-wrapper">
                 <i class="fas fa-user-circle fa-lg"></i>
-                <NavDropdown className="navBar-iconCaption" title="profile" id="basic-nav-dropdown">
+               {currentUser && 
+                 <NavDropdown className="navBar-iconCaption" title="profile" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/user-details" onClick={() => history.push("/user-details")}>My profile</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.2">My orders</NavDropdown.Item>
-              </NavDropdown>
+                </NavDropdown>
+
+               }
+
+              {!currentUser && 
+                <NavDropdown className="navBar-iconCaption" title="signup/login" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/user-details" onClick={() => history.push("/signup")}>Signup</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action/3.2" onClick={() => history.push("/login")}>Login</NavDropdown.Item>
+                </NavDropdown>
+              }
               </div>
             </Nav.Link>
 

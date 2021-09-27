@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react'
 import {Card, Form, Button, Alert} from "react-bootstrap"
+import { useDispatch } from 'react-redux';
 import {Link , useHistory} from "react-router-dom"
 
 import { useAuth } from "../../context/AuthContext"
+import { addUser } from '../../redux/users/actionContainer';
 
 function Signup() {
 
@@ -14,6 +16,8 @@ function Signup() {
 
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
+
+    const dispatch = useDispatch();
 
 //   useEffect(() => {
 //     if(currentUser){
@@ -33,6 +37,7 @@ function Signup() {
             setError("");
             setLoading(true);
             signup(emailRef.current.value, passwordRef.current.value)
+            dispatch(addUser({email: emailRef.current.value}));
         } catch (error) {
             setError("Failed to create account");
         }

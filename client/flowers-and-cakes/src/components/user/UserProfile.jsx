@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Button} from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useAuth } from '../../context/AuthContext';
+import { getAllUsers, updateUser } from '../../redux/users/actionContainer';
 
 import './userProfile.css'
 
 function UserProfile() {
+
+    const dispatch = useDispatch();
+    const userDetails = useSelector((state) => state.user.userDetails);
+
+    const { currentUser } = useAuth();
+    const history = useHistory();
+
     const [name, setName] = useState("");
     const [countryCode, setCountryCode] = useState("+91");
     const [mobile, setMobile] = useState("");
@@ -18,12 +29,30 @@ function UserProfile() {
 
     const [isEditable, setIsEditable] = useState(false);
 
-    const handleGenderChange = (e) => {
-        setGender(e.target.value);
+
+    useEffect(() => {
+        if(isEditable === false){
+            setAllStates();
+        }
+    })
+
+    const setAllStates = () => {
+        setName(userDetails.name);
+        setMobile(userDetails.mobile);
+        setEmail(userDetails.email);
+        setDob(userDetails.dob);
+        setGender(() => {
+            if(userDetails.gender === "male") return "M";
+            else return "F";
+        });
+        setAddress(userDetails.primaryAddress);
+        setPincode(userDetails.pincode);
+        setCity(userDetails.city);
+        setCountry(userDetails.country);
     }
 
-    const handleSave = () => {
-        setIsEditable(false);
+    const handleGenderChange = (e) => {
+        setGender(e.target.value);
     }
 
     const handleCancel = () => {
@@ -32,6 +61,11 @@ function UserProfile() {
 
     const handleEdit = () => {
         setIsEditable(true);
+    }
+
+    const handleSave = () => {
+        setIsEditable(false);
+        dispatch(updateUser(userDetails._id, {name: name, mobile: mobile, dob: dob, anniversary: anniversary, gender: gender === "M" ? "male" : "female", primaryAddress: address, pincode: pincode, city: city, country: country, isAdmin: false}));
     }
 
     return (
@@ -66,7 +100,7 @@ function UserProfile() {
                         <i class="fas fa-envelope"></i>
                         <div className="userProfile-formItem-right">
                             <span>Email *</span>
-                            <input type="text" className="userProfile-formItem-right-textInput" disabled={isEditable === false} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                            <input type="text" className="userProfile-formItem-right-textInput" disabled={true} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
                         </div>
                     </div>
                     <div className="userProfile-formItem">

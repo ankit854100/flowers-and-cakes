@@ -11,12 +11,14 @@ import CakeContainer from './components/items/CakeContainer';
 import FlowerContainer from './components/items/FlowerContainer';
 import Homepage from './components/Homepage';
 
-import {getFlowers, getCakes} from "./redux/items/actionContainer"
+import {getFlowers, getCakes} from "./redux/items/actionContainer";
+import { getAllUsers } from "./redux/users/actionContainer";
 import UserDetails from './components/user/UserDetails';
 
 import Signup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
 import ForgotPassword from './components/authentication/ForgetPassword';
+import { useAuth } from './context/AuthContext';
 
 
 
@@ -24,9 +26,14 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const { currentUser } = useAuth();
+
   useEffect(() => {
       dispatch(getCakes());
       dispatch(getFlowers());
+      if(currentUser){
+        dispatch(getAllUsers(currentUser.email));
+      }
       
   }, [dispatch])
 

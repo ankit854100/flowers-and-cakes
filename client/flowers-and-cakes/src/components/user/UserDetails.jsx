@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import NavBar from '../home/NavBar'
 import UserProfile from './UserProfile';
@@ -7,9 +7,20 @@ import UserOrders from './UserOrders';
 
 import './userDetails.css'
 import Footer from '../home/Footer';
+import { useAuth } from '../../context/AuthContext';
+import { useHistory } from 'react-router';
 
 function UserDetails() {
     const [rightContainer, setRightContainer] = useState("profile");
+
+    const { logout, currentUser } = useAuth();
+    const history = useHistory();
+
+    useEffect(() => {
+        if(!currentUser){
+            history.push("/");
+        }
+    })
 
     return (
         <div>
@@ -32,7 +43,13 @@ function UserDetails() {
                         <i class="fas fa-key"></i>
                         <span>change password</span>
                     </div>
-                    <div className={rightContainer === "logout" ? "userDetails-left-activeDiv userDetails-leftLast" : "userDetails-leftLast"} onClick={() => {setRightContainer("logout")}}>
+                    <div className={rightContainer === "logout" ? "userDetails-left-activeDiv userDetails-leftLast" : "userDetails-leftLast"} 
+                        onClick={() => {
+                            logout();
+                            history.push("/");
+                            setRightContainer("logout");
+                            }}
+                    >
                         <i class="fas fa-sign-out-alt"></i>
                         <span>logout</span>
                     </div>

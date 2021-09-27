@@ -12,6 +12,7 @@ const UserSchema = mongoose.Schema({
     primaryAddress: String,
     addressBook: [String],
     pincode: String,
+    city: String,
     country: String,
     isAdmin: Boolean,
     cart: [

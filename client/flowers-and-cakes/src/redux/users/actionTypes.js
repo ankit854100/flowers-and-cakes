@@ -1,0 +1,8 @@
+const ADD_USER = "ADD_USER";
+const GET_ALL_USERS = "GET_ALL_USERS";
+const UPDATE_USER = "UPDATE_USER";
+
+export {
+    ADD_USER,
+    GET_ALL_USERS
+}

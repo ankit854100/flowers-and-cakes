@@ -1,9 +1,14 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import './footer.css'
 
 function Footer() {
+
+    const history = useHistory();
+
     return (
         <div className="footer">
             <div className="footer-row">
@@ -30,19 +35,19 @@ function Footer() {
                     <h2>Quick links</h2>
                     <div>
                         <i class="fas fa-external-link-alt"></i>
-                        <span>Home</span>
+                        <span><Link className="footer-links" to='/'>Home</Link></span>
                     </div>
-                    <div>
+                    {/* <div>
                         <i class="fas fa-external-link-alt"></i>
                         <span>Cakes</span>
                     </div>
                     <div>
                         <i class="fas fa-external-link-alt"></i>
                         <span>Flowers</span>
-                    </div>
+                    </div> */}
                     <div>
                         <i class="fas fa-external-link-alt"></i>
-                        <span>Profile</span>
+                        <span><Link className="footer-links" to="/user-details">profile</Link></span>
                     </div>
                 </div>
                 <div className="footer-Col">

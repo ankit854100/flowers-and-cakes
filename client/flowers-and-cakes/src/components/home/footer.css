@@ -22,10 +22,19 @@
 
 .footer-Col div{
     padding: 0.25rem 0;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .footer-Col div:hover{
+    color: #009d43 !important;
+}
+
+.footer-links{
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+.footer-links:hover{
     color: #009d43 !important;
 }
 
