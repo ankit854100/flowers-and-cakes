@@ -19,6 +19,8 @@ import Signup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
 import ForgotPassword from './components/authentication/ForgetPassword';
 import { useAuth } from './context/AuthContext';
+import HelpCenter from './components/HelpCenter';
+import Cart from './components/user/Cart';
 
 
 
@@ -47,6 +49,8 @@ function App() {
             <Route path="/flower-items" component={FlowerContainer} />
             <Route path="/product-details" component={ProductDetails}/>
             <Route path="/user-details" component={UserDetails} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/help-center" component={HelpCenter} />
             <Route path="/admin" component={Admin} />
             <Route exact path="/" component={Homepage} />
           </Switch>

@@ -34,9 +34,19 @@ export const updateUser = (id, user) => async (dispatch) => {
     try {
         const { data } = await api.updateUser(id, user);
 
-        console.log(user);
+        // console.log(user);
         dispatch({type: GET_ALL_USERS, payload: data});
     } catch (error) {
         console.log(error);
     }
 }
+
+// const addToCart = (id, usersData) => async (dispatch) => {
+//     try {
+//         const {data} = await api.updateUser(id, usersData);
+
+//         dispatch({GET_ALL_USERS, payload: data});
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }

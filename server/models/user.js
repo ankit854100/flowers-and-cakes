@@ -15,29 +15,8 @@ const UserSchema = mongoose.Schema({
     city: String,
     country: String,
     isAdmin: Boolean,
-    cart: [
-        {
-            productId: String,
-            quantity: Number,
-            amount: Number,
-        }
-    ],
-    orders: [
-        {
-            productId: String,
-            quantity: Number,
-            receiverMobile: String,
-            receiverAddress: String,
-            receiverEmail: String,
-            pincode: String,
-            city: String,
-            state: String,
-            deliveryDate: Date,
-            deliveryTimeStart: Date,
-            deliveryTimeEnd: Date,
-            amount: Number
-        }
-    ]
+    cart: [],
+    orders: []
 });
 
 const UserModel = mongoose.model("user", UserSchema);

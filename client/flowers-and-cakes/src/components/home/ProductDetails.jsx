@@ -39,9 +39,9 @@ function ProductDetails() {
               <i class="fas fa-rupee-sign"></i>
               <span>{selectedProduct.price}</span>
             </div>
-            <div className="productDetails-right-inputContainer">
+            {/* <div className="productDetails-right-inputContainer">
               <input type="text" placeholder="Enter pincode"></input>
-            </div>
+            </div> */}
             <div class="productDetails-right-buttonContainer">
               <Button variant="success"><i class="fas fa-cart-plus"></i>{" "}Add to cart</Button>
               <Button variant="warning"><i class="fas fa-bolt"></i>{" "}Buy now</Button>

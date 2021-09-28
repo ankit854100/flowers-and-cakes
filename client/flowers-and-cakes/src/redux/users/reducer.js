@@ -3,7 +3,9 @@ import { ADD_USER, GET_ALL_USERS } from "./actionTypes"
 const initialState = {
     userDetails: {
         name: "",
-        email: ""
+        email: "",
+        cart: [],
+        orders: []
     }
 }
 
