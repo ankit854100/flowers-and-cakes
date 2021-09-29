@@ -6,6 +6,7 @@ import cors from 'cors'
 import flowerRoutes from './routes/flower.js'
 import cakesRoutes from './routes/cakes.js'
 import usersRoutes from './routes/users.js'
+import transactionsRoutes from './routes/transactions.js'
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use('/flower', flowerRoutes);
 app.use('/cake', cakesRoutes);
 app.use('/user', usersRoutes);
+app.use('/tran', transactionsRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://demo_user:demo123123@cluster0.sfrsy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
