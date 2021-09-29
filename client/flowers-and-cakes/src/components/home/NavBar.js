@@ -42,7 +42,7 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link className="" href="#action1">
+            <Nav.Link className="" href="">
               <Link to="/cart" className="routerLink">
                 <div className="navBar-icon-wrapper">
                   <i class="fas fa-shopping-cart fa-lg"></i>
@@ -56,30 +56,30 @@ function NavBar() {
                 <i class="fas fa-user-circle fa-lg"></i>
                {currentUser && 
                  <NavDropdown className="navBar-iconCaption" title="profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/user-details"><Link to="/user-details" className="routerLink">My profile</Link></NavDropdown.Item>
+                  <NavDropdown.Item href=""><Link to="/user-details" className="routerLink">My profile</Link></NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2" className="routerLink">My orders</NavDropdown.Item>
+                  <NavDropdown.Item href=""><Link to="/user-details" className="routerLink">My orders</Link></NavDropdown.Item>
                 </NavDropdown>
 
                }
 
               {!currentUser && 
                 <NavDropdown className="navBar-iconCaption" title="login" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/user-details"><Link to="/signup" className="routerLink">Signup</Link></NavDropdown.Item>
+                    <NavDropdown.Item href=""><Link to="/signup" className="routerLink">Signup</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.2"><Link to="/login" className="routerLink">Login</Link></NavDropdown.Item>
+                    <NavDropdown.Item href=""><Link to="/login" className="routerLink">Login</Link></NavDropdown.Item>
                 </NavDropdown>
               }
               </div>
             </Nav.Link>
 
-            <Nav.Link className="" href="#action3">
-            <Link to="/help-center" className="routerLink">
-              <div className="navBar-icon-wrapper">
-                <i class="fas fa-question-circle fa-lg"></i>
-                <span className="navBar-iconCaption">Help center</span>
-              </div>
-            </Link>
+            <Nav.Link className="" href="">
+              <Link to="/help-center" className="routerLink">
+                <div className="navBar-icon-wrapper">
+                  <i class="fas fa-question-circle fa-lg"></i>
+                  <span className="navBar-iconCaption">Help center</span>
+                </div>
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

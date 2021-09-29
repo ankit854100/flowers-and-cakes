@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import ProfileForm from './ProfileForm'
 import ProductList from './ProductList'
@@ -8,10 +9,13 @@ import ChangePassword from './ChangePassword'
 import './admin.css'
 
 import { useAuth} from "../../context/AuthContext"
+import Chart from './Chart'
 
 function Admin() {
 
     const [rightContainer, setRightContainer] = useState("profile");
+
+    const history = useHistory();
 
     const { logout } = useAuth();
     
@@ -34,12 +38,17 @@ function Admin() {
                     <i class="fas fa-plus-circle"></i>
                     <span>Add product</span>
                 </div>
+                <div className={rightContainer === "stats" ? "admin-left-activeDiv" : ""} onClick={() => {setRightContainer("stats")}}>
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Statistics</span>
+                </div>
                 <div className={rightContainer === "changePassword" ? "admin-left-activeDiv" : ""} onClick={() => {setRightContainer("changePassword")}}>
                     <i class="fas fa-key"></i>
                     <span>change password</span>
                 </div>
                 <div className={rightContainer === "logout" ? "admin-left-activeDiv admin-leftLast" : "admin-leftLast"} onClick={() => {
                     logout();
+                    history.push("/login");
                     setRightContainer("logout")
                 }}>
                     <i class="fas fa-sign-out-alt"></i>
@@ -51,6 +60,7 @@ function Admin() {
                 {rightContainer === "productList" && <ProductList setRightContainer={setRightContainer} /> }
                 {rightContainer === "addProduct" && <AddProducts /> }
                 {rightContainer === "changePassword" && <ChangePassword /> }
+                {rightContainer === "stats" && <Chart /> }
             </div>
         </div>
     )

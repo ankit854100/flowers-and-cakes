@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Button} from "react-bootstrap"
+import { useDispatch, useSelector } from 'react-redux';
+
+import { updateUser } from '../../redux/users/actionContainer';
 
 import "./profileForm.css"
 
@@ -19,12 +22,37 @@ function ProfileForm() {
 
     const [isEditable, setIsEditable] = useState(false);
 
+    const dispatch = useDispatch();
+    const userDetails = useSelector(state => state.user.userDetails);
+
+    useEffect(() => {
+        if(isEditable === false){
+            setAllStates();
+        }
+    })
+
+    const setAllStates = () => {
+        setName(userDetails.name);
+        setMobile(userDetails.mobile);
+        setEmail(userDetails.email);
+        setDob(userDetails.dob);
+        setGender(() => {
+            if(userDetails.gender === "male") return "M";
+            else return "F";
+        });
+        setAddress(userDetails.primaryAddress);
+        setPincode(userDetails.pincode);
+        setCity(userDetails.city);
+        setCountry(userDetails.country);
+    }
+
     const handleGenderChange = (e) => {
         setGender(e.target.value);
     }
 
     const handleSave = () => {
         setIsEditable(false);
+        dispatch(updateUser(userDetails._id, {name: name, mobile: mobile, dob: dob, anniversary: anniversary, gender: gender === "M" ? "male" : "female", primaryAddress: address, pincode: pincode, city: city, country: country, isAdmin: true, orders: []}));
     }
 
     const handleCancel = () => {

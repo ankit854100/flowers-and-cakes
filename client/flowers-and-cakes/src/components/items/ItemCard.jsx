@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from "react-loader-spinner";
+import { useAuth } from "../../context/AuthContext";
 
 import { setSelectedProduct } from '../../redux/items/actionContainer';
 
@@ -11,6 +13,8 @@ import { updateUser } from '../../redux/users/actionContainer';
 function ItemCard(props) {
 
     const [disable, setDisable] = useState(false)
+
+    const { currentUser} = useAuth();
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -44,7 +48,7 @@ function ItemCard(props) {
                         <span><i class="fas fa-rupee-sign"></i>{" "}{props.item.price}</span>
                     </div>
                 </div>
-                <Button variant="success" size="sm" disabled={disable} onClick={handleAddToCart}>add to cart</Button>
+                <Button variant="success" size="sm" disabled={disable || (currentUser && currentUser.email === "ankit854100@gmail.com") || !currentUser} onClick={handleAddToCart}>{disable? <Loader type="ThreeDots" color="#fff" height="30" width="30"/> : "add to cart"}</Button>
             </div>
         </div>
     )

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import {Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router';
+import Loader from 'react-loader-spinner';
+import { useAuth } from "../../context/AuthContext"
+
 import Footer from './Footer';
 import NavBar from './NavBar';
 
@@ -12,6 +15,10 @@ import './productDetails.css'
 function ProductDetails() {
 
   const [disable, setDisable] = useState(false);
+  const [cart, setCart] = useState(false);
+  const [buy, setBuy] = useState(false);
+
+  const { currentUser } = useAuth();
 
   const selectedProduct = useSelector((state) => state.items.selectedProduct);
   const userDetails = useSelector((state) => state.user.userDetails);
@@ -27,21 +34,25 @@ function ProductDetails() {
   const addToCart = () => {
 
     setDisable(true);
+    setCart(true)
     const updatedData = {...userDetails, cart: [...userDetails.cart, {...selectedProduct, quantity: 1}]};   
     dispatch(updateUser(userDetails._id, updatedData))
       .then(() => {
         alert("Product is added to cart");
         setDisable(false);
+        setCart(false);
       })
   }
 
   const buyNow = () => {
 
     setDisable(true);
-    dispatch(updateUser(userDetails._id, {...userDetails, orders: [...userDetails.orders, selectedProduct]}))
+    setBuy(true);
+    dispatch(updateUser(userDetails._id, {...userDetails, orders: [...userDetails.orders, {...selectedProduct, quantity: 1}]}))
       .then(() => {
         alert("Order successfull");
         setDisable(false);
+        setBuy(false);
       })
   }
 
@@ -70,8 +81,8 @@ function ProductDetails() {
               <input type="text" placeholder="Enter pincode"></input>
             </div> */}
             <div class="productDetails-right-buttonContainer">
-              <Button variant="success" disabled={disable} onClick={addToCart}><i class="fas fa-cart-plus"></i>{" "}Add to cart</Button>
-              <Button variant="warning" disabled={disable} onClick={buyNow}><i class="fas fa-bolt"></i>{" "}Buy now</Button>
+              <Button variant="success" disabled={disable || (currentUser && currentUser.email === "ankit854100@gmail.com") || !currentUser} onClick={addToCart}>{cart ? <Loader type="ThreeDots" color="#fff" height="50" width="50"/>  : <span><i class="fas fa-cart-plus"></i>{" "}Add to cart</span>}</Button>
+              <Button variant="warning" disabled={disable || (currentUser && currentUser.email === "ankit854100@gmail.com") || !currentUser} onClick={buyNow}>{buy ? <Loader type="ThreeDots" color="#fff" height="50" width="50"/> : <span><i class="fas fa-bolt"></i>{" "}Buy now</span>}</Button>
             </div>
             <div class="productDetails-right-descriptionContainer">
 
