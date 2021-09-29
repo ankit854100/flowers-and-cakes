@@ -1,4 +1,4 @@
-import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER, CAKE_CATEGORY, FLOWER_CATEGORY, SELECTED_PRODUCT } from "./actionTypes"
+import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER, CAKE_CATEGORY, FLOWER_CATEGORY, SELECTED_PRODUCT, SET_SEARCH } from "./actionTypes"
 import * as api from "../../api";
 
 export const setCurrentId = (id) => (dispatch) => {
@@ -110,4 +110,8 @@ export const setFlowerCategory = (category) => (dispatch) => {
 
 export const setSelectedProduct = (product) => (dispatch) => {
     dispatch({type: SELECTED_PRODUCT, payload: product});
+}
+
+export const setSearch = (search) => (dispatch) => {
+    dispatch({type: SET_SEARCH, payload: search});
 }

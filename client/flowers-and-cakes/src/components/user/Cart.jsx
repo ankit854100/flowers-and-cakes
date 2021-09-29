@@ -8,15 +8,19 @@ import './cart.css';
 import { updateUser } from '../../redux/users/actionContainer';
 import NavBar from '../home/NavBar';
 import Footer from '../home/Footer';
+import { useAuth } from '../../context/AuthContext';
 
 const Cart=()=>{
 
     const [totalItems, setTotalItems] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [disable, setDisable] = useState(false);
 
     const dispatch = useDispatch();
 
     const userDetails = useSelector((state) => state.user.userDetails);
+
+    const { currentUser } = useAuth();
     
     useEffect(() => {
         calculate();
@@ -35,15 +39,23 @@ const Cart=()=>{
     }
 
     const handleDeleteAll = () => {
-        dispatch(updateUser(userDetails._id, {...userDetails, cart: []}));
+
+        setDisable(true);
+        dispatch(updateUser(userDetails._id, {...userDetails, cart: []}))
+            .then(() => {
+                setDisable(false);
+            })
     }
 
     const handleCheckout = () => {
         const cart = userDetails.cart;
 
-        dispatch(updateUser(userDetails._id, {...userDetails, cart: [], orders: [...userDetails.orders, ...cart]}));
-
-        alert("You order is confirmed. Thankyou for shopping!")
+        setDisable(true);
+        dispatch(updateUser(userDetails._id, {...userDetails, cart: [], orders: [...userDetails.orders, ...cart]}))
+            .then(() => {
+                alert("You order is confirmed. Thankyou for shopping!");
+                setDisable(false);
+            })
     }
 
     return (
@@ -54,12 +66,12 @@ const Cart=()=>{
                         <div className="card">
                             <div className="card-header bg-dark p-3">
                                 <div className="card-header-flex">
-                                    <button className="btn btn-danger mt-0 btn-sm" disabled={userDetails.cart.length === 0} onClick={handleDeleteAll}>
+                                    <button className="btn btn-danger mt-0 btn-sm" disabled={userDetails.cart.length === 0 || disable} onClick={handleDeleteAll}>
                                         <i className="fa fa-trash-alt mr-2"></i>
                                         <span>Empty Cart</span>
                                     </button>
                                     <h5 className="text-white m-0">Cart Calculation </h5>
-                                    <Button variant="success" size="sm" disabled={userDetails.cart.length === 0} onClick={handleCheckout}>Checkout</Button>
+                                    <Button variant="success" size="sm" disabled={userDetails.cart.length === 0 || disable} onClick={handleCheckout}>Checkout</Button>
                                 </div>
                             </div>
                             <div className="card-body p-0">
@@ -99,7 +111,11 @@ const Cart=()=>{
                                             <td colSpan="6">
                                             <div className="cart-empty">
                                                 <i className="fa fa-shopping-cart"></i>
-                                                <p>Your Cart Is empty</p>
+                                                
+                                                {currentUser ? 
+                                                    <p>Your Cart Is empty</p> :
+                                                    <p>Please sign in</p>
+                                                }
                                             </div>
                                             </td>
                                         </tr>

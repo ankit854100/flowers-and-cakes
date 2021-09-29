@@ -6,7 +6,7 @@ import './userOrders.css'
 function UserOrders() {
 
     const userDetails = useSelector((state) => state.user.userDetails);
-    console.log(userDetails.orders);
+    // console.log(userDetails.orders);
 
     return (
         <div className="userOrders">
@@ -25,7 +25,7 @@ function UserOrders() {
                     <tbody>
                         {userDetails.orders.map((item, index) => {
                             return (
-                                <tr key={item._id}>
+                                <tr key={item._id + index}>
                                     <td>{index + 1}</td>
                                     <td>
                                         <img src={item.images[0]} alt="" />

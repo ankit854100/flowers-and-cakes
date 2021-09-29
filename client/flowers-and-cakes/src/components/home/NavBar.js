@@ -1,8 +1,10 @@
 import React from 'react'
 import {Nav, Navbar, NavDropdown, Form, FormControl, Button} from "react-bootstrap"
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { setSearch } from '../../redux/items/actionContainer';
 
 import './navBar.css'
 
@@ -11,6 +13,9 @@ function NavBar() {
   const history = useHistory();
 
   const { currentUser } = useAuth();
+
+  const search = useSelector((state) => state.items.search);
+  const dispatch = useDispatch();
 
   return (
     <div className="navBar">
@@ -25,8 +30,12 @@ function NavBar() {
                 placeholder="Search"
                 className="mr-2"
                 aria-label="Search"
+                value={search}
+                onChange={(e) => dispatch(setSearch(e.target.value))}
               />
-              <Button variant="success" className="navBar-searchButton"><i class="fas fa-search"></i></Button>
+              <Link to="/search">
+                <Button variant="success" className="navBar-searchButton"><i class="fas fa-search"></i></Button>
+              </Link>
             </Form>
           <Nav
             className="my-2 my-lg-0 ms-auto"
@@ -55,7 +64,7 @@ function NavBar() {
                }
 
               {!currentUser && 
-                <NavDropdown className="navBar-iconCaption" title="signup/login" id="basic-nav-dropdown">
+                <NavDropdown className="navBar-iconCaption" title="login" id="basic-nav-dropdown">
                     <NavDropdown.Item href="/user-details"><Link to="/signup" className="routerLink">Signup</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.2"><Link to="/login" className="routerLink">Login</Link></NavDropdown.Item>

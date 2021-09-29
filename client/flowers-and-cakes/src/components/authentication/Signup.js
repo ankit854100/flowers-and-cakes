@@ -19,6 +19,8 @@ function Signup() {
 
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
 //   useEffect(() => {
 //     if(currentUser){
 //       history.push("/")
@@ -38,6 +40,7 @@ function Signup() {
             setLoading(true);
             signup(emailRef.current.value, passwordRef.current.value)
             dispatch(addUser({email: emailRef.current.value}));
+            history.push("/");
         } catch (error) {
             setError("Failed to create account");
         }
@@ -51,7 +54,7 @@ function Signup() {
                 <Card>
                     <Card.Body>
                         <h2 className="text-center mb-4">Sign Up</h2>
-                        {currentUser && currentUser.email}
+                        {/* {currentUser && currentUser.email} */}
                         {error && <Alert variant="danger">{error}</Alert>}
                         <Form onSubmit={handleSubmit}>
                             <Form.Group id="email">

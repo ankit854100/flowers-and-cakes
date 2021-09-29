@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import './itemCard.css'
 import { updateUser } from '../../redux/users/actionContainer';
 
 function ItemCard(props) {
+
+    const [disable, setDisable] = useState(false)
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -22,8 +24,13 @@ function ItemCard(props) {
 
     const handleAddToCart = () => {
 
+        setDisable(true);
         const updatedData = {...userDetails, cart: [...userDetails.cart, {...props.item, quantity: 1}]};   
-        dispatch(updateUser(userDetails._id, updatedData));
+        dispatch(updateUser(userDetails._id, updatedData))
+            .then(() => {
+                alert("Product added to cart");
+                setDisable(false);
+            })
     }
 
     return (
@@ -37,7 +44,7 @@ function ItemCard(props) {
                         <span><i class="fas fa-rupee-sign"></i>{" "}{props.item.price}</span>
                     </div>
                 </div>
-                <Button size="sm" onClick={handleAddToCart}>add to cart</Button>
+                <Button variant="success" size="sm" disabled={disable} onClick={handleAddToCart}>add to cart</Button>
             </div>
         </div>
     )

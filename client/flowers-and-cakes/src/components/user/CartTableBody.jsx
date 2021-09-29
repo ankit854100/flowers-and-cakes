@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateUser } from '../../redux/users/actionContainer';
 
 function CartTableBody(props) {
 
     const dispatch = useDispatch();
+    // const [disable, setDisable] = useState(false);
 
     const handleDeleteOne = () => {
         // console.log(props.userDetails.cart.filter((item) => item._id !== props.item._id));
+        // setDisable(true);
         dispatch(updateUser(props.userDetails._id, {...props.userDetails, cart: props.userDetails.cart.filter((item) => item._id !== props.item._id)}));
     }
 

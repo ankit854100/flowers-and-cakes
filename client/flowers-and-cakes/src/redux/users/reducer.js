@@ -4,6 +4,7 @@ const initialState = {
     userDetails: {
         name: "",
         email: "",
+        isAdmin: false,
         cart: [],
         orders: []
     }

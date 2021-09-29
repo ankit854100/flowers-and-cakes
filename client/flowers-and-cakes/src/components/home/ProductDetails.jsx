@@ -1,22 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Button} from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router';
 import Footer from './Footer';
 import NavBar from './NavBar';
+
+import { updateUser } from '../../redux/users/actionContainer';
 
 import './productDetails.css'
 
 function ProductDetails() {
 
+  const [disable, setDisable] = useState(false);
+
   const selectedProduct = useSelector((state) => state.items.selectedProduct);
+  const userDetails = useSelector((state) => state.user.userDetails);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(selectedProduct === null){
       history.push("/");
     }
   })
+
+  const addToCart = () => {
+
+    setDisable(true);
+    const updatedData = {...userDetails, cart: [...userDetails.cart, {...selectedProduct, quantity: 1}]};   
+    dispatch(updateUser(userDetails._id, updatedData))
+      .then(() => {
+        alert("Product is added to cart");
+        setDisable(false);
+      })
+  }
+
+  const buyNow = () => {
+
+    setDisable(true);
+    dispatch(updateUser(userDetails._id, {...userDetails, orders: [...userDetails.orders, selectedProduct]}))
+      .then(() => {
+        alert("Order successfull");
+        setDisable(false);
+      })
+  }
 
   return (
     <React.Fragment>
@@ -43,8 +70,8 @@ function ProductDetails() {
               <input type="text" placeholder="Enter pincode"></input>
             </div> */}
             <div class="productDetails-right-buttonContainer">
-              <Button variant="success"><i class="fas fa-cart-plus"></i>{" "}Add to cart</Button>
-              <Button variant="warning"><i class="fas fa-bolt"></i>{" "}Buy now</Button>
+              <Button variant="success" disabled={disable} onClick={addToCart}><i class="fas fa-cart-plus"></i>{" "}Add to cart</Button>
+              <Button variant="warning" disabled={disable} onClick={buyNow}><i class="fas fa-bolt"></i>{" "}Buy now</Button>
             </div>
             <div class="productDetails-right-descriptionContainer">
 

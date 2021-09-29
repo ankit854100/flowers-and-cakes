@@ -1,4 +1,4 @@
-import { ADD_CAKE, ADD_FLOWER, CAKE_CATEGORY, DELETE_CAKE, DELETE_FLOWER, FETCH_ALL_CAKES, FETCH_ALL_FLOWERS, FLOWER_CATEGORY, SELECTED_PRODUCT, SET_CURRENT_ID, SET_ID_CATEGORY, UPDATE_CAKE, UPDATE_FLOWER } from "./actionTypes"
+import { ADD_CAKE, ADD_FLOWER, CAKE_CATEGORY, DELETE_CAKE, DELETE_FLOWER, FETCH_ALL_CAKES, FETCH_ALL_FLOWERS, FLOWER_CATEGORY, SELECTED_PRODUCT, SET_CURRENT_ID, SET_ID_CATEGORY, SET_SEARCH, UPDATE_CAKE, UPDATE_FLOWER } from "./actionTypes"
 
 const initialState = {
     flowers: [],
@@ -8,7 +8,8 @@ const initialState = {
     selectedItemId: null,
     cakeCategory: null,
     flowerCategory: null,
-    selectedProduct: null
+    selectedProduct: null,
+    search: ""
 }
 
 const reducer = (state = initialState, action) => {
@@ -77,6 +78,11 @@ const reducer = (state = initialState, action) => {
         case SELECTED_PRODUCT: return {
             ...state,
             selectedProduct: action.payload
+        }
+
+        case SET_SEARCH: return {
+            ...state,
+            search: action.payload
         }
 
         default: return state;
