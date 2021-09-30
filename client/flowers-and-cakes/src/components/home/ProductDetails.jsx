@@ -11,6 +11,8 @@ import NavBar from './NavBar';
 import { updateUser } from '../../redux/users/actionContainer';
 
 import './productDetails.css'
+import { checkType } from '../user/Cart';
+import { getOneCake, getOneFlower, addTransaction } from '../../redux/items/actionContainer';
 
 function ProductDetails() {
 
@@ -48,6 +50,13 @@ function ProductDetails() {
 
     setDisable(true);
     setBuy(true);
+    dispatch(addTransaction({title: selectedProduct.title, type: checkType(selectedProduct.category) ? "Cake" : "Flower", category: selectedProduct.category, cost: selectedProduct.price, quantity: selectedProduct.quantity}));
+    if(checkType(selectedProduct.category)){
+      dispatch(getOneCake(selectedProduct._id));
+    }
+    else{
+      dispatch(getOneFlower(selectedProduct._id));
+    }
     dispatch(updateUser(userDetails._id, {...userDetails, orders: [...userDetails.orders, {...selectedProduct, quantity: 1}]}))
       .then(() => {
         alert("Order successfull");

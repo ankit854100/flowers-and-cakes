@@ -12,7 +12,7 @@ import { useAuth } from '../../context/AuthContext';
 import Loader from 'react-loader-spinner';
 import { addTransaction, getOneCake, getOneFlower } from '../../redux/items/actionContainer';
 
-function checkType(item) {
+export function checkType(item) {
     let cakes = ["Vanilla", "Chocolate", "Butterscotch", "Pineapple", "Strawberry"];
 
     return cakes.includes(item);

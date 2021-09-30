@@ -17,7 +17,10 @@ function CakeContainer() {
             <div className="itemContainer">
                 <div className="itemContainer-cardWrapper">
                     {cakes.map((cake) => {
-                        if(category === "All"){
+                        if(cake.quantity <= 0){
+                            return null;
+                        }
+                        else if(category === "All"){
                             return <ItemCard key={cake._id} item={cake} />
                         }
                         else if(cake.category === category){

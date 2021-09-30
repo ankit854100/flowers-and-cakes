@@ -18,7 +18,10 @@ function FlowerContainer() {
             <div className="itemContainer">
                 <div className="itemContainer-cardWrapper">
                     {flowers.map((flower) => {
-                        if(category === "All"){
+                        if(flower.quantity <= 0){
+                            return null;
+                        }
+                        else if(category === "All"){
                             return <ItemCard key={flower._id} item={flower} />
                         }
                         else if(category === flower.category){
