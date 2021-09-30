@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Button} from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { useAuth } from "../../context/AuthContext";
 import { setSelectedProduct } from '../../redux/items/actionContainer';
 
 import './itemCard.css'
-import { updateUser } from '../../redux/users/actionContainer';
+import { getAllUsers, updateUser } from '../../redux/users/actionContainer';
 
 function ItemCard(props) {
 
@@ -20,6 +20,12 @@ function ItemCard(props) {
     const dispatch = useDispatch();
 
     const userDetails = useSelector((state) => state.user.userDetails);
+
+    // useEffect(() => {
+    //     if(currentUser && userDetails.name === ""){
+    //         dispatch(getAllUsers(currentUser.email));
+    //     }
+    // })
 
     const handleCardClick = () => {
         dispatch(setSelectedProduct(props.item));

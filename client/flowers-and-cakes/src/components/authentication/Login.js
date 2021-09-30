@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../context/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { getAllUsers } from "../../redux/users/actionContainer"
+import { getAllUsers, resetUser } from "../../redux/users/actionContainer"
 
 export default function Login() {
   const emailRef = useRef()
@@ -27,6 +27,7 @@ export default function Login() {
     e.preventDefault()
 
     try {
+      dispatch(resetUser());
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)

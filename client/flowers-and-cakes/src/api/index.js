@@ -17,3 +17,4 @@ export const deleteFlower = (id) => axios.delete(`${flowerUrl}/${id}`);
 export const getUsers = () => axios.get(`${userUrl}`);
 export const addUser = (newUser) => axios.post(`${userUrl}`, newUser);
 export const updateUser = (id, user) => axios.patch(`${userUrl}/${id}`, user);
+export const getUserByEmail = (email) => axios.get(`${userUrl}/email/${email}`);

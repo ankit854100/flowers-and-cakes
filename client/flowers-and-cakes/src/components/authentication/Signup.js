@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import {Link , useHistory} from "react-router-dom"
 
 import { useAuth } from "../../context/AuthContext"
-import { addUser } from '../../redux/users/actionContainer';
+import { addUser, resetUser } from '../../redux/users/actionContainer';
 
 function Signup() {
 
@@ -36,6 +36,7 @@ function Signup() {
         }
 
         try {
+            dispatch(resetUser());
             setError("");
             setLoading(true);
             signup(emailRef.current.value, passwordRef.current.value)

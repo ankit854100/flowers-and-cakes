@@ -9,6 +9,8 @@ import './userDetails.css'
 import Footer from '../home/Footer';
 import { useAuth } from '../../context/AuthContext';
 import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsers } from '../../redux/users/actionContainer';
 
 function UserDetails() {
     const [rightContainer, setRightContainer] = useState("profile");
@@ -16,9 +18,17 @@ function UserDetails() {
     const { logout, currentUser } = useAuth();
     const history = useHistory();
 
+    const dispatch = useDispatch();
+    const userDetails = useSelector((state) => state.user.userDetails);
+
     useEffect(() => {
         if(!currentUser){
             history.push("/");
+        }
+        else{
+            if(userDetails.name === ""){
+                dispatch(getAllUsers(currentUser.email));
+            }
         }
     })
 

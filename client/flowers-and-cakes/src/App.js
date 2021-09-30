@@ -12,7 +12,7 @@ import FlowerContainer from './components/items/FlowerContainer';
 import Homepage from './components/Homepage';
 
 import {getFlowers, getCakes} from "./redux/items/actionContainer";
-import { getAllUsers } from "./redux/users/actionContainer";
+import { getAllUsers, resetUser } from "./redux/users/actionContainer";
 import UserDetails from './components/user/UserDetails';
 
 import Signup from "./components/authentication/Signup";
@@ -41,6 +41,7 @@ function App() {
   const [spinnerUser, setSpinnerUser] = useState(true);
 
   useEffect(() => {
+
       dispatch(getCakes())
         .then(() => {
           setSpinnerCake(false);

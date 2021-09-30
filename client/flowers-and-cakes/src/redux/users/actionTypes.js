@@ -2,9 +2,11 @@ const ADD_USER = "ADD_USER";
 const GET_ALL_USERS = "GET_ALL_USERS";
 
 const ADD_TO_CART = "ADD_TO_CART";
+const RESET_USER = "RESET_USER";
 
 export {
     ADD_USER,
     GET_ALL_USERS,
-    ADD_TO_CART
+    ADD_TO_CART,
+    RESET_USER
 }

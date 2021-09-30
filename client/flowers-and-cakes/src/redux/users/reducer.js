@@ -1,4 +1,4 @@
-import { ADD_USER, GET_ALL_USERS } from "./actionTypes"
+import { ADD_USER, GET_ALL_USERS, RESET_USER } from "./actionTypes"
 
 const initialState = {
     userDetails: {
@@ -18,6 +18,11 @@ const reducer = (state = initialState, action) => {
         }
 
         case GET_ALL_USERS: return {
+            ...state,
+            userDetails: action.payload
+        }
+
+        case RESET_USER: return {
             ...state,
             userDetails: action.payload
         }
