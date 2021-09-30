@@ -1,5 +1,6 @@
 import { FETCH_ALL_CAKES, ADD_CAKE, FETCH_ALL_FLOWERS, ADD_FLOWER, SET_CURRENT_ID, UPDATE_CAKE, SET_ID_CATEGORY, UPDATE_FLOWER, DELETE_CAKE, DELETE_FLOWER, CAKE_CATEGORY, FLOWER_CATEGORY, SELECTED_PRODUCT, SET_SEARCH } from "./actionTypes"
 import * as api from "../../api";
+import axios from "axios";
 
 export const setCurrentId = (id) => (dispatch) => {
     dispatch({type: SET_CURRENT_ID, payload: id});
@@ -114,4 +115,34 @@ export const setSelectedProduct = (product) => (dispatch) => {
 
 export const setSearch = (search) => (dispatch) => {
     dispatch({type: SET_SEARCH, payload: search});
+}
+
+export const addTransaction = (item) => async (dispatch) => {
+    try {
+        const { data } = await api.addTransaction(item);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getOneCake = (id) => async (dispatch) => {
+    try {
+        // console.log(id);
+        const { data } = await api.getOneCake(id);
+        // console.log(data);
+        api.updateCake(id, {...data, quantity: data.quantity - 1});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getOneFlower = (id) => async (dispatch) => {
+    try {
+        // console.log(id);
+        const { data } = await api.getOneFlower(id);
+        // console.log(data);
+        api.updateFlower(id, {...data, quantity: data.quantity - 1});
+    } catch (error) {
+        console.log(error);
+    }
 }

@@ -10,6 +10,14 @@ import NavBar from '../home/NavBar';
 import Footer from '../home/Footer';
 import { useAuth } from '../../context/AuthContext';
 import Loader from 'react-loader-spinner';
+import { addTransaction, getOneCake, getOneFlower } from '../../redux/items/actionContainer';
+
+function checkType(item) {
+    let cakes = ["Vanilla", "Chocolate", "Butterscotch", "Pineapple", "Strawberry"];
+
+    return cakes.includes(item);
+
+}
 
 const Cart=()=>{
 
@@ -55,6 +63,16 @@ const Cart=()=>{
     const handleCheckout = () => {
         const cart = userDetails.cart;
 
+        for(let i = 0; i < userDetails.cart.length; i++){
+            let currentItem = userDetails.cart[i];
+            dispatch(addTransaction({title: currentItem.title, type: checkType(currentItem.category) ? "Cake" : "Flower", category: currentItem.category, cost: currentItem.price, quantity: currentItem.quantity}));
+            if(checkType(currentItem.category)){
+                dispatch(getOneCake(currentItem._id));
+            }
+            else{
+                dispatch(getOneFlower(currentItem._id));
+            }
+        }
         setBuy(true);
         setDisable(true);
         dispatch(updateUser(userDetails._id, {...userDetails, cart: [], orders: [...userDetails.orders, ...cart]}))
@@ -62,7 +80,7 @@ const Cart=()=>{
                 alert("You order is confirmed. Thankyou for shopping!");
                 setDisable(false);
                 setBuy(false);
-            })
+            });
     }
 
     return (
