@@ -9,6 +9,7 @@ import { useAuth } from '../context/AuthContext'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllUsers } from '../redux/users/actionContainer'
+import Chat from './chatbot/Chat'
 
 function Homepage() {
 
@@ -29,6 +30,7 @@ function Homepage() {
                 <CarouselHomePage />
                 <CakeCategory />
                 <FlowerCategory />
+                <Chat />
                 <Footer />
             </div>
             <style jsx>{`

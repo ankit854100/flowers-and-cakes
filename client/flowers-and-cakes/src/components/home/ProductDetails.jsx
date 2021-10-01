@@ -13,6 +13,7 @@ import { updateUser } from '../../redux/users/actionContainer';
 import './productDetails.css'
 import { checkType } from '../user/Cart';
 import { getOneCake, getOneFlower, addTransaction } from '../../redux/items/actionContainer';
+import Chat from '../chatbot/Chat'
 
 function ProductDetails() {
 
@@ -117,6 +118,7 @@ function ProductDetails() {
         </div>: 
         null
       }
+      <Chat />
       <Footer />
     </React.Fragment>
   )

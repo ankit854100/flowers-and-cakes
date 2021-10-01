@@ -6,6 +6,7 @@ import ItemCard from './ItemCard'
 
 import './itemContainer.css'
 import Footer from '../home/Footer'
+import Chat from '../chatbot/Chat'
 
 function FlowerContainer() {
 
@@ -33,6 +34,7 @@ function FlowerContainer() {
                     })}
                 </div>
             </div>
+            <Chat />
             <Footer />
        </React.Fragment>
     )

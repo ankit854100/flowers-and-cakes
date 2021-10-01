@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Chat from '../chatbot/Chat'
 import Footer from '../home/Footer'
 import NavBar from '../home/NavBar'
 import ItemCard from './ItemCard'
@@ -32,6 +33,7 @@ function CakeContainer() {
                     })}
                 </div>
             </div>
+            <Chat />
             <Footer />
        </React.Fragment>
     )
