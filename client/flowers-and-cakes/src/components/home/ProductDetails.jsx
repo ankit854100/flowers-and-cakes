@@ -51,7 +51,7 @@ function ProductDetails() {
 
     setDisable(true);
     setBuy(true);
-    dispatch(addTransaction({title: selectedProduct.title, type: checkType(selectedProduct.category) ? "Cake" : "Flower", category: selectedProduct.category, cost: selectedProduct.price, quantity: selectedProduct.quantity}));
+    dispatch(addTransaction({title: selectedProduct.title, type: checkType(selectedProduct.category) ? "Cake" : "Flower", category: selectedProduct.category, cost: selectedProduct.price, quantity: 1}));
     if(checkType(selectedProduct.category)){
       dispatch(getOneCake(selectedProduct._id));
     }
@@ -60,7 +60,7 @@ function ProductDetails() {
     }
     dispatch(updateUser(userDetails._id, {...userDetails, orders: [...userDetails.orders, {...selectedProduct, quantity: 1}]}))
       .then(() => {
-        alert("Order successfull");
+        alert("Order successfull, you will get the product in a week.");
         setDisable(false);
         setBuy(false);
       })

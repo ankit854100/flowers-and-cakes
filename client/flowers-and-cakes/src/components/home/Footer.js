@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { useHistory } from 'react-router'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { addNewsLetterEmail } from '../../redux/items/actionContainer';
 
 import './footer.css'
 
 function Footer() {
 
-    const history = useHistory();
+    const [email, setEmail] = useState("");
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = () => {
+        dispatch(addNewsLetterEmail({email: email}))
+            .then(() => {
+                alert("You email has been sent");
+                setEmail("");
+            })
+    }
 
     return (
         <div className="footer">
@@ -53,8 +64,8 @@ function Footer() {
                 <div className="footer-Col">
                     <h2>Get latest update</h2>
                     <div className="footer-Col-inputContainer">
-                        <input type="text" placeholder="email" />
-                        <Button variant ="success">submit</Button>
+                        <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Button variant ="success" onClick={handleSubmit}>submit</Button>
                     </div>
                 </div>
             </div>

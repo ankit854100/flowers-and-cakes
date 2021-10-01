@@ -153,3 +153,12 @@ export const sendFeedback = (data) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const addNewsLetterEmail = (email) => async (dispatch) => {
+    try{
+        api.addNewsLetterEmail(email);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
