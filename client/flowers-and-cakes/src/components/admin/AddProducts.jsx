@@ -148,6 +148,7 @@ function AddProducts() {
                                     <option value="Jasmine">Jasmine</option>
                                     <option value="Tulip">Tulip</option>
                                     <option value="Lotus">Lotus</option>
+                                    <option value="Lily">Lily</option>
                                 </select>
                             }
                         </div>

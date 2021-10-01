@@ -19,6 +19,7 @@ function HelpCenter() {
 
     const handleSubmit = () => {
         dispatch(sendFeedback({firstname: firstName, lastname: lastName, email: email, post: query}));
+        alert("You query has been sent we will get back to you soon");
         reset();
     }
 
