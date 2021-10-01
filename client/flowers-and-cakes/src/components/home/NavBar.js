@@ -23,7 +23,7 @@ function NavBar() {
         <Navbar.Brand href="/"><Link to="/" className="routerLink">Flowers and cakes</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={(e) => {e.preventDefault()}}>
               <FormControl
                 className="navBar-search"
                 type="search"

@@ -3,6 +3,7 @@
     padding: 1rem;
     align-items: center;
     padding-top: 5rem;
+    min-height: 100%;
 }
 
 .itemContainer-cardWrapper{

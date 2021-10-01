@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 
 import {Nav, Navbar, NavDropdown, Form, FormControl, Button } from "react-bootstrap"
@@ -31,6 +31,8 @@ function SearchPage(props) {
 
     const { currentUser } = useAuth();
 
+    const buttonRef = useRef();
+
     const [data, setData] = useState([]);
     var [dataFlower, setDataFlower] = useState([]);  
     var [dataCake, setDataCake] = useState([]);
@@ -59,7 +61,9 @@ function SearchPage(props) {
         dataFlower = props.flowers.map(item => ({...item, 'type':'flower'}))
         dataCake = props.cakes.map(item => ({...item, 'type':'cake'}))
     
-        setData([...dataFlower, ...dataCake])
+        setData([...dataFlower, ...dataCake]);
+
+        buttonRef.current.click();
 
         // findItem(searchLine, itemType, itemOrder, itemState)
     
@@ -138,7 +142,7 @@ function SearchPage(props) {
                             value={searchLine}
                             onChange={(e) => {setSearchLine(e.target.value)}}
                         />
-                        <Button variant="success" className="navBar-searchButton" onClick={() => setBtnClick(!btnClick)}><i className="fas fa-search"></i></Button>
+                        <Button ref={buttonRef} variant="success" className="navBar-searchButton" onClick={() => setBtnClick(!btnClick)}><i className="fas fa-search"></i></Button>
                         </Form>
                     {/* className="navBar-select" */}
                         <div className="searchBar-Filters">

@@ -56,18 +56,30 @@ class Chat extends Component {
                 },
                 {
                   id:'enq',
-                  user:true,
-                  trigger:'q-ctypes',
+                  options:[
+                    {value:'c', label:'how many types of cakes available', trigger:'q-ctypes'},
+                    {value:'f', label:'How many types of flowers available', trigger:'q-ftypes'},
+                    ] 
                 },
                 {
                   id:'q-ctypes',
-                  message:'There are 4 types of cakes available',
+                  message:'There are 5 types of cakes available',
                   trigger:'ctypes',
                 },
                 {
                   id:'ctypes',
                   user:true,
                   trigger:'q-cake',
+                },
+                {
+                  id:'q-ftypes',
+                  message:'There are 5 types of flower available',
+                  trigger:'ftypes',
+                },
+                {
+                  id:'ftypes',
+                  user:true,
+                  trigger:'q-flower',
                 },
                 {
                   id:'q-order', 
@@ -157,13 +169,13 @@ class Chat extends Component {
                       id: 'no-submit',
                       message:'Your information was not submitted.', 
                       end: true,
-                  },
+                   },
                         {
                       id: 'end-message',
                       component: <Post />,
                       asMessage: true,
                       end: true,
-                  },
+                   },
             ]}
             {...config}
             />
