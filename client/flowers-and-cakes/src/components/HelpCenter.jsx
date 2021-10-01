@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { sendFeedback } from '../redux/items/actionContainer'
 
-function HelpCenter() {
+function HelpCenter(props) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -36,7 +36,7 @@ function HelpCenter() {
             <div className="helpCenter">
                 <div className="helpCenter-insideWrapper">
                     <div className="helpCenter-leftContainer">
-                        <h2>Fill the form its easy  </h2>
+                        <h2>Fill the form its easy</h2>
                         <div className="helpCenter-leftFormContainer">
                             <div>
                                 <input type="text" placeholder="First name" style={{marginRight: "0.5rem"}} value={firstName} onChange={(e) => setFirstName(e.target.value)} />

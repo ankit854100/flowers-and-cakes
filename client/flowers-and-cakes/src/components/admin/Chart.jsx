@@ -8,11 +8,11 @@ function Chart() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/tran")
+        axios.get("https://flowers-and-cakes.herokuapp.com/tran")
         .then((res) => {setData(res.data)})
         .catch(error => console.log(error))
 
-        console.log(data)
+        // console.log(data)
     },[data])
     
     function getData(type) {
