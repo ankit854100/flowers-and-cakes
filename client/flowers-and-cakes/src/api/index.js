@@ -4,6 +4,7 @@ const cakeUrl = "http://localhost:5000/cake";
 const flowerUrl = "http://localhost:5000/flower";
 const userUrl = "http://localhost:5000/user";
 const tranUrl = "http://localhost:5000/tran";
+const feedbackUrl = "http://localhost:5000/feedback";
 
 export const fetchCakes = () => axios.get(cakeUrl);
 export const addCake = (newCake) => axios.post(`${cakeUrl}/addCake`, newCake);
@@ -23,3 +24,5 @@ export const updateUser = (id, user) => axios.patch(`${userUrl}/${id}`, user);
 export const getUserByEmail = (email) => axios.get(`${userUrl}/email/${email}`);
 
 export const addTransaction = (data) => axios.post(`${tranUrl}`, data);
+
+export const addFeedback = (data) => axios.post(`${feedbackUrl}`, data);
