@@ -1,0 +1,25 @@
+.navBar-select {
+    margin-left: 5px;
+    padding: 7px;
+}
+
+.searchBar-Filters{
+    display: flex;
+    padding: 0 1rem;
+}
+
+.searchBar-Filters select{
+    width: 4.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border-color: #CED4DA;
+    color: #666B71;
+}
+
+.searchBar-Filters .middle{
+    margin: 0 0.2rem;
+}
+
+.searchBar-Filters select:focus{
+    outline-color: green;
+}

@@ -1,0 +1,12 @@
+.itemContainer{
+    background-color: #f2f2f2;
+    padding: 1rem;
+    align-items: center;
+    padding-top: 5rem;
+    min-height: 100%;
+}
+
+.itemContainer-cardWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,36 @@
+.productList h2{
+    margin-bottom: 1rem;
+}
+
+.productList-tableContainer{
+    margin-bottom: 2rem;  
+    max-height: 22rem;
+    overflow: auto;  
+}
+
+.productList thead{
+    background-color: #009d43;
+    color: #fff;
+}
+
+.productList th, td{
+    padding: 0.5rem 1rem;
+}
+
+.productList tbody tr{
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.productList i{
+    color: #999999;
+    cursor: pointer;
+}
+
+.productList i:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: red;
+}
+
+.last{
+    text-align: center;
+}

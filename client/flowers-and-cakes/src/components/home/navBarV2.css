@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+
+/* 
+html{
+    font-size: 62.5%; */
+    /* overflow: hidden; */
+    /* scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+} */
+.header{
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    padding: 0.5rem 1%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    transition: all .2s linear;
+
+    font-size: 62.5%;
+    /* overflow: hidden; */
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+.header-logo{
+    font-size: 3rem;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.header-Navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 80rem;
+}
+.header input::placeholder{
+    color: white;
+ } 
+ .header input.search.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.header .header-icons a{
+     height: 4.5rem;
+     line-height: 4.5rem;
+     width: 5rem;
+     font-size: 2rem;
+     margin-right: .5rem;
+     border-radius: .5rem;
+     color: red;
+     background: lightgoldenrodyellow;
+     text-align: center;
+}
+#header-menu-btn{
+    display: none;
+}
+
+@media(max-width:1233px) {
+    .header{
+        font-size: 50%;
+        padding: 3rem;
+    }
+    
+}
+@media(max-width:1195px) {
+    .header{
+        padding: 3rem;
+    }
+    .Navbar{
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        background: black;
+        padding: 1rem 0;
+        width: 100%;
+    }
+    .d-block .w-100{
+        width: 50%;
+        height: 50%;
+    }
+}
+@media(max-width:768px){
+    #menu-bar{
+        display: initial;
+    }
+    .Navbar{
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        background: black;
+        padding: 0rem 0;
+    }
+    .d-block .w-100{
+        width: 50%;
+        height: 50%;
+    }
+}
+@media(max-width:454px){
+    #menu-bar{
+        display: initial;
+    }
+    .Navbar{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background: black;
+        padding: 0 0;
+    }
+    .d-block .w-100{
+        width: 50%;
+        height: 50%;
+    }
+}
+@media(max-width:368px){
+    #menu-bar{
+        display: initial;
+    }
+    .header{
+        font-size: 5px;
+    }
+    .Navbar{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background: black;
+        padding: 0 5px;
+    }
+    .d-block .w-100{
+        width: 50%;
+        height: 50%;
+    }
+}
+@media(max-width:230px){
+    #menu-bar{
+        display: initial;
+    }
+    .header{
+        font-size: 3px;
+    }
+    .Navbar{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        background: black;
+        padding: 0 10px;
+    }
+    .d-block .w-100{
+        width: 50%;
+        height: 50%;
+    }
+}
