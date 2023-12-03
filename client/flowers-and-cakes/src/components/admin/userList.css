@@ -1,0 +1,20 @@
+.userList thead{
+    background-color: #009d43;
+    color: #fff;
+}
+
+.userList th, td{
+    padding: 0.5rem 1rem;
+}
+
+.userList tbody tr{
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.userList i{
+    color: #999999;
+}
+
+.last{
+    text-align: center;
+}

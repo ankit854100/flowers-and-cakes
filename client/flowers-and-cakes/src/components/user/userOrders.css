@@ -1,0 +1,41 @@
+.userOrders h2{
+    margin-bottom: 1rem;
+}
+
+.userOrders-tableContainer{
+    margin-bottom: 2rem;  
+    max-height: 22rem;
+    overflow: auto;  
+}
+
+.userOrders thead{
+    background-color: #009d43;
+    color: #fff;
+}
+
+.userOrders th, td{
+    padding: 0.5rem 1rem;
+}
+
+.userOrders tbody tr{
+    border-bottom: 2px solid #E1E1E1;
+}
+
+.userOrders img{
+    width: 2rem;
+    border-radius: 0.25rem;
+}
+
+.userOrders i{
+    color: #999999;
+    cursor: pointer;
+}
+
+.userOrders i:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: red;
+}
+
+.last{
+    text-align: center;
+}

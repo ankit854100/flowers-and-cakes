@@ -1,0 +1,35 @@
+.itemCard{
+    background-color: #fff;
+    padding: 0.5rem;
+    width: 18rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all ease-in-out 0.25s;
+    cursor: pointer;
+}
+
+.itemCard:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.itemCard img{
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+}
+
+.itemCard-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemCard-details p{
+    margin-bottom: 0.2rem;
+}
+
+.itemCard-bottom button{
+    height: 2rem;
+}
+

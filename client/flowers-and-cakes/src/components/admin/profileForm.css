@@ -1,0 +1,67 @@
+.mobileCode{
+    width: 30% !important;
+    margin-right: 1rem;
+}
+
+.rightMargin{
+    margin-right: 1rem;
+}
+
+.profile h2{
+    margin-bottom: 2rem;
+}
+
+.profile-form-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+    align-items: flex-end;
+}
+
+.profile-formItem{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+
+.profile-formItem i{
+    color: #999999;
+}
+
+.profile-formItem-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    width: 100%;
+}
+
+.profile-formItem-right span{
+    color: #999EB3;
+}
+
+.profile-formItem-right-textInput{
+    border: none; 
+    border-bottom: 2px solid #E2E2E2;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+
+.profile-formItem-right-textInput:focus{
+    outline: none !important;
+    border-bottom: 2px solid #009d43;
+}
+
+.profile-formItem-right-radioInputWrapper{
+    display: flex;
+}
+
+.profile-formItem-right-radioInputWrapper div{
+    padding: 1rem 0;
+    margin-right: 1.5rem;
+}
+
+.profile-buttonContainer button{
+    margin-right: 1rem;
+}
