@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const cakeUrl = "https://flowers-and-cakes.herokuapp.com/cake";
-const flowerUrl = "https://flowers-and-cakes.herokuapp.com/flower";
-const userUrl = "https://flowers-and-cakes.herokuapp.com/user";
-const tranUrl = "https://flowers-and-cakes.herokuapp.com/tran";
-const feedbackUrl = "https://flowers-and-cakes.herokuapp.com/feedback";
-const newsLetterEmailUrl = "https://flowers-and-cakes.herokuapp.com/newsletter";
+const cakeUrl = "https://flowers-and-cakes.onrender.com/cake";
+const flowerUrl = "https://flowers-and-cakes.onrender.com/flower";
+const userUrl = "https://flowers-and-cakes.onrender.com/user";
+const tranUrl = "https://flowers-and-cakes.onrender.com/tran";
+const feedbackUrl = "https://flowers-and-cakes.onrender.com/feedback";
+const newsLetterEmailUrl = "https://flowers-and-cakes.onrender.com/newsletter";
 
 export const fetchCakes = () => axios.get(cakeUrl);
 export const addCake = (newCake) => axios.post(`${cakeUrl}/addCake`, newCake);
